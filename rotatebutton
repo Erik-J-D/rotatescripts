@@ -1,21 +1,35 @@
-mode=`cat /usr/bin/rotationmode`
-if test 0 = $mode
-then
-echo 1 > /usr/bin/rotationmode
-rotateright
+mode=`cat ./rotationmode`
+numwacom=`xsetwacom --list | wc -l`
+tp=0
+
+if test 0 = $mode; then
+    echo 1 > ./rotationmode
+    rotatemode="cw"
+    xr="right"
+
+elif test 1 = $mode; then
+    echo 2 > ./rotationmode
+    rotatemode="half"
+    xr="inverted"
+
+elif test 2 = $mode; then
+    echo 3 > ./rotationmode
+    rotatemode="ccw"
+    xr="left"
+
+else
+    echo 0 > ./rotationmode
+    tp=1
+    xr="normal"
+    rotatemode="none"
 fi
-if test 1 = $mode
-then
-echo 2 > /usr/bin/rotationmode
-rotateinverted
-fi
-if test 2 = $mode
-then
-echo 3 > /usr/bin/rotationmode
-rotateleft
-fi
-if test 3 = $mode
-then
-echo 0 > /usr/bin/rotationmode
-rotatenormal
-fi
+
+xrandr -o $xr
+xinput -set-prop "TPPS/2 IBM TrackPoint" "Device Enabled" $tp
+
+for i in {1..$numwacom}
+do
+    id=`xsetwacom --list | head -$i | tail -1 | grep -o 'id: [0-9]\+' | grep -o '[0-9]\+'`
+    xsetwacom set $id rotate $rotatemode
+done
+

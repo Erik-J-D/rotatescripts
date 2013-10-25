@@ -1,5 +1,0 @@
-xrandr -o right
-xsetwacom set 9 rotate cw
-xsetwacom set 10 rotate cw
-xsetwacom set 15 rotate cw
-xinput -set-prop "TPPS/2 IBM TrackPoint" "Device Enabled" 0
