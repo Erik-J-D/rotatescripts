@@ -1,3 +1,4 @@
+#!/bin/bash
 pastmode=`cat /sys/devices/platform/thinkpad_acpi/hotkey_tablet_mode`
 while [ true ]
 do
@@ -15,15 +16,9 @@ do
   then
     if test 1 = $nowmode
     then
-      rotatemode=`cat ./rotationmode`
-      if test 0 = $rotatemode
-      then
-        echo 1 > ./rotationmode #1 for inverted, 2 for right, 0 for left
-        ./rotatebutton
-        pastmode=1
-      else
-        pastmode=1
-      fi
+      echo 1 > ./rotationmode #1 for inverted, 2 for right, 0 for left
+      ./rotatebutton
+      pastmode=1
     fi
   fi
   sleep 2

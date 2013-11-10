@@ -1,5 +1,5 @@
+#!/bin/bash
 mode=`cat ./rotationmode`
-numwacom=`xsetwacom --list | wc -l`
 tp=0
 
 if test 0 = $mode; then
@@ -27,6 +27,7 @@ fi
 xrandr -o $xr
 xinput -set-prop "TPPS/2 IBM TrackPoint" "Device Enabled" $tp
 
+numwacom=`xsetwacom --list | wc -l`
 for ((i=1;i <=$numwacom; i++))
 do
     id=`xsetwacom --list | head -n$i | tail -1 | grep -o 'id: [0-9]\+' | grep -o '[0-9]\+'`
