@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Autorotate
+Exec=/home/erik/rotatescripts/autorotate
+Terminal=false
+Type=Application

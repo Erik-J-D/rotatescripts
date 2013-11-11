@@ -1,24 +1,24 @@
 #!/bin/bash
-mode=`cat ./rotationmode`
+mode=`cat ~/rotatescripts/rotationmode`
 tp=0
 
 if test 0 = $mode; then
-    echo 1 > ./rotationmode
+    echo 1 > ~/rotatescripts/rotationmode
     rotatemode="cw"
     xr="right"
 
 elif test 1 = $mode; then
-    echo 2 > ./rotationmode
+    echo 2 > ~/rotatescripts/rotationmode
     rotatemode="half"
     xr="inverted"
 
 elif test 2 = $mode; then
-    echo 3 > ./rotationmode
+    echo 3 > ~/rotatescripts/rotationmode
     rotatemode="ccw"
     xr="left"
 
 else
-    echo 0 > ./rotationmode
+    echo 0 > ~/rotatescripts/rotationmode
     tp=1
     xr="normal"
     rotatemode="none"

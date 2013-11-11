@@ -7,8 +7,8 @@ do
   then  
     if test 0 = $nowmode
     then
-      echo 3 > ./rotationmode
-      ./rotatebutton
+      echo 3 > ~/rotatescripts/rotationmode
+      ~/rotatescripts/rotatebutton
       pastmode=0
     fi
   fi
@@ -16,8 +16,8 @@ do
   then
     if test 1 = $nowmode
     then
-      echo 1 > ./rotationmode #1 for inverted, 2 for right, 0 for left
-      ./rotatebutton
+      echo 1 > ~/rotatescripts/rotationmode #1 for inverted, 2 for right, 0 for left
+      ~/rotatescripts/rotatebutton
       pastmode=1
     fi
   fi
