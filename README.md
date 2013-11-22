@@ -8,8 +8,9 @@ To install:
     git clone https://github.com/Erik-J-D/rotatescripts.git
     cd rotatescripts
     chmod 744 ./*
-    cp ./autorotate ~/.config/autostart/ #only if you want autorotation
+    cp ./autorotate ~/.config/autostart/ #only if you want autorotation, on ubuntu
     
+If you're using Debian (tested on 7), ignore the last step and simply add it to your startup applications.
 
 If you followed the last step for autorotation, log out and log back in for it to work.
 
