@@ -10,7 +10,9 @@ To install:
     chmod 744 ./*
     #Next step only if you want autorotation, on ubuntu
     cp ./autorotate ~/.config/autostart/ 
-    
+
+
+xinput must be installed for automatically disabling / enabling trackpoint.    
 If you're using Debian (tested on 7), ignore the last step and simply add it to your startup applications.
 
 If you followed the last step for autorotation, log out and log back in for it to work.
